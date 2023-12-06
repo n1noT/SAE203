@@ -1,0 +1,105 @@
+<html>
+    <head>
+        <title>Back Office</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+
+        <h1 class="title">BACK OFFICE</h1>
+        
+
+        <div class="page"> 
+        <section class="page__section1">
+            
+            <form method='GET' action="../server/script.php" class="page__form" >
+                <h2>Gestions des trailers</h2>
+                <h3>Mettre à jour ou ajouter un film</h3>
+
+                <select name="idMovie" id="movies-list" placeholder="movies" onchange='getIdMovie()'>
+                    
+                </select>
+                <h3>Informations du film:</h3>
+                <input type="text" name="title" placeholder="Titre"  id="titre">
+                <input type="text" name="direction" placeholder="Réalisateur" id="real">
+                <input type="text" name="year" placeholder="Année de sortie"  id="annee">
+                <input type="text" name="urlImg" placeholder="URL image" id="url_img">
+                <input type="text" name="urlVid" placeholder="URL trailer" id="url_vid">
+
+                <h3>Catégorie du film:</h3>
+                <select name="idcategories" id="categorie" placeholder="categorie">
+                    
+                </select>
+
+                <h3>Mettre en avant: </h3>
+                <select name="mav" placeholder="mettre en avant">
+                    <option value="0">oui</option>
+                    <option value="1">non</option>
+                </select>
+
+                <!-- <input type="hidden" name="idMovie" id="id_movie"> -->
+                
+                <input type="submit" name="action" value="addmovie" placeholder="Envoyer" class="btn__play fit-content font-size-btn">
+
+                <h3>Supprimer un film</h3>
+                
+                <select name="ideletemovie" id="movies-list-delete" placeholder="movies">
+                    
+                </select>
+
+                <input type="submit" name="action" value="deletemovie" placeholder="Envoyer" class="btn__play fit-content font-size-btn">
+
+            </form>
+        </section>
+         
+        <section class="page__section2">
+            <form method='GET' action="../server/script.php" class="page__form">
+            <h2>Gestion des catégories</h2>
+            <h3>Ajouter une catégorie</h3>
+            <input type="text" name="nomcategory" placeholder="Nouvelle catégorie">
+
+            <input type="submit" name="action" value="addcategory" placeholder="Envoyer" class="btn__play fit-content font-size-btn">
+
+            <h3>Supprimer une catégorie</h3>
+            <select name="ideletecategorie" id="categorie2" placeholder="categorie">
+                    
+            </select>
+            <input type="submit" name="action" value="deletecategory" placeholder="Envoyer" class="btn__play fit-content font-size-btn">
+        </form>
+        </section>
+        
+
+        <section class="page__section3">
+        <h2>Gestions des utilisateurs</h2>
+
+        <form method='GET' action="../server/script.php" class="page__form">
+               
+            <h3>Ajouter un utilisateur</h3>
+            <input type="text" name="name" placeholder="Nom de l'utilisateur" id="nom_profil">
+            
+            <input type="submit" name="action" value="addprofile" placeholder="Envoyer" class="btn__play fit-content font-size-btn">
+            <h3>Supprimer un profil</h3>
+            <select name="idprofile" id="user">
+                    
+            </select>
+            <input type="submit" name="action" value="deleteprofile" placeholder="Envoyer" class="btn__play fit-content font-size-btn">
+        </form>
+    </section>
+
+        <template id="movie-template">
+            <option value="{{id_movie}}">{{titre}} - {{annee}}</option>
+        </template>
+
+        <template id="category-template">
+            <option value="{{id_category}}">{{nom_category}}</option>
+        </template>
+
+        <template id="user-template">
+            <option value="{{id_profil}}">{{nom_profil}}</option>
+        </template>
+
+    </div>
+    </body>
+
+    <script src="script.js"></script>
+</html>

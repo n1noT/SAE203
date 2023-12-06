@@ -1,0 +1,208 @@
+@import url('./css/variable.css');
+@import url('./css/btn.css');
+@import url('./css/menu-burger.css');
+@import url('./css/card.css');
+@import url('./css/trailer.css');
+@import url('./css/caroussel.css');
+@import url('./css/base.css');
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+
+
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.main{
+    padding-top: var(--height-header);
+}
+
+.content {
+  padding: 0 2rem;
+}
+
+@media (min-width: 35rem) {
+  .movies {
+    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  
+  }
+
+
+}
+
+@media (min-width: 70rem) {
+  .movies {
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  }
+
+  .label-menu {
+    display: none;
+  }
+
+  .header__nav {
+    position: static;
+    translate: 0;
+    transition: all 0.3s ease-in-out;
+    inset: none;
+  }
+
+  .header__nav-list {
+    flex-direction: row;
+    padding: 0;
+  }
+
+  .btn__nav:hover{
+    color: var(--clr-hover-font);
+    font-weight: var(--fw-semi-bold);
+  }
+
+  .btn__search{
+    max-width: 15rem;
+  }
+
+  .border{
+    border: none;
+  }
+
+  .trailer__vid {
+    grid-column: 1/-2;
+  }
+
+  .trailer__text {
+    height: 100%;
+    /* width: fit-content; */
+    grid-column: -2/-1;
+  }
+  .prev {
+    margin: 0 -8rem 0 0;
+    padding: 3rem;
+  }
+
+
+  .next {
+    margin: 0 0 0 -8rem;
+    padding: 3rem;
+    border-radius: 3px 0 0 3px;
+  }
+
+  .arrow {
+    mix-blend-mode: difference;
+  }
+
+  .arrow:hover {
+    mix-blend-mode: exclusion;
+    scale: 1.15;
+  }
+
+  .slide__text {
+    max-width: 40rem;
+  }
+
+  .slide__img {
+    object-position: center;
+    transform: scale(1);
+  }
+
+  .slide__alone:hover .slide__img {
+    cursor: pointer;
+  }
+  .slide__alone {
+    max-height: 32rem;
+  }
+
+  .invisible{
+    opacity: 0;
+}
+}
+
+
+
+@media (min-width: 100rem) {
+  .slide__alone {
+    max-height: 45rem;
+  }
+
+  .slide__text {
+    max-width: 40rem;
+  }
+
+  .invisible{
+    opacity: 0;
+}
+
+}
+

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>Application Name</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="main.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+
+        
+
+        <div class="header">
+            <img src="./asset/mycanal-logo.svg" class="header__logo" onclick="location.reload()" alt="logo de canal plus">
+            <input type="checkbox" class="header__toggle-burger" id="toggle-burger">
+            <label for="toggle-burger" class="label-menu">
+                <svg viewbox="0 0 32 32" width="32" height="32" class="header__svg">
+                    <rect class="header__burger" x="2" y="6" width="28" height="2" rx="2"></rect>
+                    <rect class="header__burger" x="2" y="15" width="28" height="2" rx="2"></rect>
+                    <rect class="header__burger" x="2" y="24" width="28" height="2" rx="2"></rect>
+                </svg>
+                <!-- Création d'un span avec une classe sr-only pour le référencement -->
+                <span class="sr-only">Btn afficher ou pas le menu</span>
+            </label>
+            <!-- Création d'une div que l'on va manipuler avec la checkbox -->
+            <nav class="header__nav">
+                <ul class="header__nav-list">
+                    <li>
+                        <button onclick="requestMovies()" class="btn__nav" name="getmovies">Home</button>
+                    <li>
+                        <select onchange="requestMovies()" name="idcategories" id="categorie" class="btn__select btn-height-nav border-radius">
+                    
+                        </select>
+                    </li>
+                    <li>
+                        <select name="idprofile" id="user" class="btn__select btn-height-nav border-radius">
+                    
+                        </select>
+                    </li>
+                    <li>
+                        <input type="search" name="lookformovies" placeholder="Rechercher..." onkeyup="lookForMovies()" id="lookfortitle" class="btn__search btn-height-nav border-radius">
+                    </li>
+                    <li>
+                        <button onclick="requestPlaylist()" class="btn__play btn-height-nav select-none" name="getplaylist">MA PLAYLIST</button>
+                    <li>
+                </ul>
+            </nav>
+    </div>
+    <main class="main">
+
+        <div class="slider">
+            <a class="arrow prev" onclick="plusSlides(-1)">&#10094;</a>
+            <div class="slideshow-container" id="actu">
+                
+            </div>  
+            
+            <a class="arrow next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+    
+        <div class="content">
+            <!-- <div class="main__title"></div> -->
+            <div class="movies">
+                
+            </div>
+        </div>
+        
+    </main>
+
+        <template class="card-template">
+            <div class="card">
+            <div class="card__alone" onclick="requestMovie ('{{id_movie}}')"  name="getmovie">
+                <img src="./asset/{{url_img}}" alt="affiche de {{titre}}" class="card__img">
+                <div class="card__text">
+                    <h1 class="card__title">{{titre}}</h1>
+                    <div class="card__desc">
+                        <p class="card__dir">{{realisateur}}</p>
+                        <p> - </p>
+                <p class="card__year">{{annee}}</p>
+                    </div>
+                </div>
+            </div>  
+            <button class="btn__add invisible select-none" onclick="addPlaylist('{{id_movie}}')"  name="addplaylist" > + AJOUTER</button>
+        </div>
+  
+        </template>
+
+        <template class="actu-template">
+            <div class="mySlides fade">
+                <div class="slide__alone" onclick="requestMovie ('{{id_movie}}')"  name="getmovie">
+                    <img src="./asset/{{url_img}}" alt="affiche de {{titre}}" class="slide__img">
+                    <div class="slide__text">
+                        <h1 class="slide__title">{{titre}}</h1>
+                        <div class="slide__desc">
+                            <p class="slide__dir">{{realisateur}}</p>
+                            <p> - </p>
+                    <p class="slide__year">{{annee}}</p>
+                        </div>
+                    </div>
+                </div>  
+                <button class="btn__add z-index no-border-radius btn-height width select-none" onclick="addPlaylist('{{id_movie}}')"  name="addplaylist" > + AJOUTER</button>
+            </div>
+        </template>
+
+        <template class="playlist-template">
+            <div class="card">
+            <div class="card__alone" onclick="requestMovie ('{{id_movie}}')"  name="getmovie">
+                <img src="./asset/{{url_img}}" alt="affiche de {{titre}}" class="card__img">
+                <div class="card__text">
+                    <h1 class="card__title">{{titre}}</h1>
+                    <div class="card__desc">
+                        <p class="card__dir">{{realisateur}}</p>
+                        <p> - </p>
+                <p class="card__year">{{annee}}</p>
+                    </div>
+                </div>
+            </div>  
+            <button class="btn__delete invisible select-none" onclick="removeFromPlaylist('{{id_movie}}'); "  name="removefromplaylist"  > - SUPPRIMER</button>
+        </div>
+        </template>
+
+        <template class="trailer-template">
+            
+                <iframe src="{{url_vid}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen alt="trailer de {{titre}}" class="trailer__vid"></iframe>
+                <div class="trailer__text">
+                    <h1 class="trailer__title">{{titre}}</h1>
+                    <div class="trailer__desc">
+                        <p class="trailer__dir">{{realisateur}}</p>
+                        <p> - </p>
+                <p class="trailer__year">{{annee}}</p>
+                    </div>
+                </div>
+        
+        </template>
+
+        <template id="category-template">
+            <option value="{{id_category}}" class="btn__select-option">{{nom_category}}</option>
+        </template>
+      
+
+        <template id="user-template">
+            <option value="{{id_profil}}" class="btn__select-option" >{{nom_profil}}</option>
+        </template>
+
+        <!-- <template class="title-template">
+            <h1>{{nom_category}}</h1>
+        </template> -->
+
+        <script src="script.js"></script>
+    </body>
+</html>

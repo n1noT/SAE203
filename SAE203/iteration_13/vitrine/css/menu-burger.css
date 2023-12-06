@@ -1,0 +1,125 @@
+.sr-only{
+    clip: rect(0,0,0,0);
+    overflow: hidden;
+    width: 1px;
+    margin: -1px;
+    position: absolute;
+}
+
+.header__toggle-burger{
+    appearance: none;
+}
+
+.label-menu{
+    display: inline-flex;
+    cursor: pointer;
+    margin-left: auto;
+    position: relative;
+    z-index: 1000;
+}
+
+/* - Burger -- */
+
+
+.header__burger{
+    /* Origine de la transformation */
+    transform-origin: center center;    
+    
+}
+/* On détermine l'origine des transformations : ici le centre des éléments notre svg (32x32) */
+.header__burger:nth-child(1){
+    rotate: 0;
+    /* Transition retour état initial*/
+    transition: y .3s .3s, rotate .3s 0s, fill .3s 0s;
+}   
+
+.header__burger:nth-child(3){
+    rotate: 0;
+    /* Transition retour état initial*/
+    transition: y .3s .3s, rotate .3s 0s, fill .3s 0s;
+}
+.header__burger:nth-child(2){
+    opacity: 1;
+    /* Transition retour état initial*/
+    transition: opacity .2s .5s;
+}
+
+
+/* - hover ---- */
+
+.label-menu :hover .header__burger:nth-child(1){
+    fill: var(--clr-hover-icon);
+}
+
+.label-menu :hover .header__burger:nth-child(3){
+    fill: var(--clr-hover-icon);
+}
+
+
+
+/* - Checked ---- */
+
+.header__toggle-burger:checked ~ label  .header__burger:nth-child(1){
+    y : 15px;
+    rotate: 45deg;
+    /* Transition allé */
+    transition: y .3s 0s, rotate .3s .3s;
+}
+
+.header__toggle-burger:checked ~ label .header__burger:nth-child(3){
+    y : 15px;
+    rotate: -45deg;
+    /* Transition allé */
+    transition: y .3s 0s, rotate .3s .3s;
+}
+
+.header__toggle-burger:checked ~ label .header__burger:nth-child(2){
+    opacity: 0;
+    transition: y .4s 0s;
+}
+
+/* Control-me */
+
+.header__nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: fixed;
+    inset: 0 0 0 30%;
+    background-color: var(--clr-head-bg);
+    translate: 100% 0;
+    transition: .4s .2s ease-in-out;
+    color: var(--clr-font-nav);
+    z-index: 200;
+    
+}
+
+.header__nav-list{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-height: 30rem;
+    padding: 3rem;
+    font-size: var(--fs-nav);
+    
+    
+}
+
+.header__menu{
+    color: var(--clr-font-nav);
+    transition: 200ms;
+}
+
+.header__menu:hover{
+    color: var(--clr-hover-font);
+}
+
+.header__toggle-burger:checked ~ .header__nav{
+    translate: 0%;
+    box-shadow: 0rem 0rem 10rem var(--clr-shadow);
+    transition:  .4s .2s;
+
+}
+
+
+  

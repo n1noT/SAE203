@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap');
+
+:root{
+    --clr-dark-primary: hsl(0, 0%, 5%);
+    --clr-dark-secondary: hsl(217.5, 10.8%, 14.5%);
+    --clr-black-opacity: hsl(0, 0%, 0%, 0.5);
+    --clr-black-opacity-2: hsl(0, 0%, 0%, 0.9);
+    --clr-white:hsl(0, 0%, 100%);
+    --clr-white-opacity:hsl(0, 0%, 100%, 0.5);
+    --clr-amaranth: hsl(350, 83%, 57%);
+    --clr-maroon-flush: hsl(350, 100%, 69%);
+    --clr-green: hsl(128, 85%, 57%);
+    --clr-none: hsla(0, 0%, 0%, 0);
+
+    --clr-hover-font: var(--clr-amaranth);
+    --clr-hover-icon: var(--clr-maroon-flush);
+    --clr-icon: var(--clr-amaranth);
+    --clr-icon-valid: var(--clr-green);
+    --clr-icon-invalid: hsl(354, 100%, 42%);
+    --clr-border: var(--clr-dark-secondary);
+    
+    --clr-head-bg: var(--clr-dark-primary);
+    --clr-bg-actu: var(--clr-none);
+    --clr-btn-bg-secondary: var(--clr-black-opacity);
+    --clr-btn-bg-hover: var(--clr-black-opacity);
+    --clr-btn-no-bg: var(--clr-none);
+    --clr-bg: var(--clr-dark-primary);
+
+    --clr-font-big: var(--clr-white);
+    --clr-font-sma: var(--clr-white-opacity);
+
+    --clr-card-bg: var(--clr-none);
+    --clr-shadow: hsl(0, 0%, 5%, 0.5);
+
+    --fs-paragraph: 1.1rem;
+    --fs-nav: 1.3rem;
+    --fs-title: 2.5rem;
+
+    --fs-btn: italic;
+
+    --ff: 'Roboto', sans-serif;
+    
+    --fw-light: 400;
+    --fw-semi-bold: 700;
+    --fw-bold: 900;
+
+    --ls-btn: .2rem;
+
+    --lh-para: 1.5rem;
+    --lh-title: 2rem;
+
+    --radius: 3px;
+
+    --btn-height-nav: 2.5rem;
+    --btn-height: 3rem;
+    --btn-height-add: 10%;
+
+    --height-header: 5rem;
+    --height-card: 90%;
+}

@@ -1,0 +1,72 @@
+.card{
+    padding: 3rem .4rem 0 .4rem;
+    width: 100%;
+    border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .4rem;
+    cursor: pointer;
+    flex: 1 0 100%;
+    border-radius: var(--radius);
+    transition: 300ms;
+}
+
+.card__alone{
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--clr-card-bg);
+    z-index: 0;
+    transition: 300ms;
+}
+
+.card__img{
+    aspect-ratio: 16/9;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: var(--radius);
+    
+}
+
+.card__title{
+    color: var(--clr-font-big);
+    font-weight: var(--fw-light);
+    font-size: var(--fs-paragraph);
+    max-height: 1.7rem;
+    overflow: hidden;
+
+}
+
+.card__text{
+    padding: .5rem;
+    padding-left: 0;
+    color: var(--clr-font-sma);  
+}
+
+.card__desc{
+    display: flex;
+    justify-content:start;
+    gap: .5rem;
+    font-size: var(--fs-paragraph);
+    max-height: 1.7rem;
+    overflow: hidden;
+}
+
+.card:hover .card__img{
+    filter: grayscale(70%);
+    transition: 300ms ease-out;
+
+}
+
+.card:hover .btn__add {
+    opacity: 1;
+}
+
+.card:hover .btn__delete {
+    opacity: 1;
+}
+
+
+
